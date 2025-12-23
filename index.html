@@ -22,50 +22,91 @@
             }
         }
     </script>
+    <style>
+        /* Custom scrollbar for modal content */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body class="bg-white text-slate-900 selection:bg-blue-100 antialiased">
+<body class="bg-white text-slate-900 selection:bg-blue-100 antialiased relative">
 
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-slate-100">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-40 border-b border-slate-100">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <span class="font-black tracking-tight text-2xl italic underline decoration-blue-600">AA.</span>
             <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
-                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-blue-600 transition-colors">Technical Stack</a>
                 <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-blue-600 transition-colors">Stack</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
         
-        <section class="mb-32">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 text-slate-900 leading-[1.1]">
-                Agentic AI & <br/>
-                <span class="text-blue-600">Automation Engineer</span>
-            </h1>
-            <h2 class="text-2xl font-bold text-slate-700 mb-6">Ayoub Amazyan</h2>
-            <div class="max-w-3xl text-lg text-slate-600 leading-relaxed mb-10 space-y-4">
-                <p>
-                    Agentic AI & Automation Engineer with three years of experience and proven expertise in designing autonomous multi-agent systems and orchestrating complex workflows.
-                </p>
-                <p>
-                    Specialized in leveraging LangChain, LangGraph, n8n, and Make to automate business processes. Strong background in building end-to-end RAG pipelines, Vision-Language OCR systems, and full-stack AI applications using FastAPI and React. 
-                    Dedicated to transforming manual operations into scalable, intelligent, and automated solutions.
-                </p>
+        <section class="mb-24 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1">
+                <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 text-slate-900 leading-[1.1]">
+                    Agentic AI & <br/>
+                    <span class="text-blue-600">Automation Engineer</span>
+                </h1>
+                <h2 class="text-2xl font-bold text-slate-700 mb-6">Ayoub Amazyan</h2>
+                <div class="max-w-2xl text-lg text-slate-600 leading-relaxed mb-10 space-y-4">
+                    <p>
+                        Agentic AI & Automation Engineer with three years of experience and proven expertise in designing autonomous multi-agent systems and orchestrating complex workflows.
+                    </p>
+                    <p>
+                        Specialized in leveraging LangChain, LangGraph, n8n, and Make to automate business processes. Dedicated to transforming manual operations into scalable, intelligent, and automated solutions.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="mailto:ayoubamazyan26@gmail.com" class="flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-600 transition-all shadow-xl hover:shadow-blue-500/20">
+                        <i data-lucide="mail" class="w-5 h-5"></i> Contact Me
+                    </a>
+                    <div class="flex gap-3">
+                        <a href="https://linkedin.com/in/ayoub-amazyan" target="_blank" class="p-4 rounded-full border border-slate-200 hover:border-blue-500 hover:text-blue-500 transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/AmazyanAyoub" target="_blank" class="p-4 rounded-full border border-slate-200 hover:border-blue-500 hover:text-blue-500 transition-all">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             
-            <div class="flex flex-wrap gap-4">
-                <a href="mailto:ayoubamazyan26@gmail.com" class="flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-600 transition-all shadow-xl hover:shadow-blue-500/20">
-                    <i data-lucide="mail" class="w-5 h-5"></i> Contact Me
-                </a>
-                <div class="flex gap-3">
-                    <a href="https://linkedin.com/in/ayoub-amazyan" target="_blank" class="p-4 rounded-full border border-slate-200 hover:border-blue-500 hover:text-blue-500 transition-all">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    </a>
-                    <a href="https://github.com/AmazyanAyoub" target="_blank" class="p-4 rounded-full border border-slate-200 hover:border-blue-500 hover:text-blue-500 transition-all">
-                        <i data-lucide="github" class="w-5 h-5"></i>
-                    </a>
+            <div class="w-full md:w-1/3 flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-blue-200">
+                    <img src="./assets/me.png" alt="Ayoub Amazyan" class="w-full h-full object-cover">
                 </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-32 scroll-mt-24">
+            <h2 class="text-4xl font-black mb-12 flex items-center gap-4 text-slate-900">
+                <i data-lucide="folder-git-2" class="text-blue-600 w-8 h-8"></i> Selected Projects
+            </h2>
+            
+            <div class="relative overflow-hidden -mx-4 px-4 pb-4"> <div id="projectTrack" class="flex transition-transform duration-700 ease-in-out will-change-transform">
+                    </div>
+            </div>
+
+            <div class="flex justify-end items-center gap-6 mt-8 select-none">
+                <button onclick="moveSlide(-1)" id="prevBtn" class="group flex items-center justify-center w-12 h-12 rounded-full border border-slate-200 hover:border-blue-600 hover:bg-blue-50 disabled:opacity-30 disabled:hover:border-slate-200 disabled:hover:bg-transparent transition-all">
+                    <i data-lucide="chevron-left" class="w-6 h-6 text-slate-400 group-hover:text-blue-600"></i>
+                </button>
+                
+                <div id="paginationNumbers" class="flex gap-4 text-lg font-bold text-slate-400">
+                    </div>
+
+                <button onclick="moveSlide(1)" id="nextBtn" class="group flex items-center justify-center w-12 h-12 rounded-full border border-slate-200 hover:border-blue-600 hover:bg-blue-50 disabled:opacity-30 disabled:hover:border-slate-200 disabled:hover:bg-transparent transition-all">
+                    <span class="mr-2 text-sm font-semibold text-slate-900 group-hover:text-blue-600 hidden md:block"></span>
+                    <i data-lucide="chevron-right" class="w-6 h-6 text-slate-400 group-hover:text-blue-600"></i>
+                </button>
             </div>
         </section>
 
@@ -216,93 +257,6 @@
             </div>
         </section>
 
-        <section id="projects" class="mb-32">
-            <h2 class="text-4xl font-black mb-16 flex items-center gap-4 text-slate-900">
-                <i data-lucide="folder-git-2" class="text-blue-600 w-8 h-8"></i> Selected Projects
-            </h2>
-            <div class="space-y-24">
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div class="order-2 lg:order-1 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl shadow-blue-900/10 bg-slate-50 group">
-                        <img src="./assets/tervela.png" alt="Tervela App" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f1f5f9/94a3b8?text=Project+Screenshot';">
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="text-sm font-bold text-blue-600 mb-3 tracking-wide uppercase">AI & Data Engineer</div>
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Tervela: AI Data Cleaning Agent</h3>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            I built Tervela, a web app that lets technical and non-technical users clean and explore CSV/Excel data by chatting with an AI agent. Users upload a file and describe what they want (remove duplicates, filter rows, create columns, fix missing data), and a <strong>LangGraph-powered backend</strong> converts this into safe Pandas code, updates the table, and keeps a history of actions so data cleaning is faster and doesn’t require writing scripts.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">React</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">AI Agent</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">LangGraph</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">FastAPI</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Data Visualization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div class="order-1 lg:order-1">
-                        <div class="text-sm font-bold text-blue-600 mb-3 tracking-wide uppercase">AI & Automation Engineer</div>
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Intelligent Web Scraper Framework</h3>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            I built an intelligent web scraper that combines <strong>Playwright</strong> and <strong>LLM-based agents</strong> to extract structured data from complex websites (e-commerce, car marketplaces, content sites). It crawls pages, detects search/listing/detail views, discovers and validates selectors, manages sessions and logins, and exports clean JSON/CSV datasets ready for analytics. The framework is reusable, so new sites can be added quickly with minimal manual selector tuning.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Web Scraping</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Python</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Data Extraction</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Generative AI</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Automation</span>
-                        </div>
-                    </div>
-                    <div class="order-2 lg:order-2 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl shadow-blue-900/10 bg-slate-50 group">
-                        <img src="./assets/scraper.png" alt="Scraper Framework" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f1f5f9/94a3b8?text=Project+Screenshot';">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div class="order-2 lg:order-1 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl shadow-blue-900/10 bg-slate-50 group">
-                        <img src="./assets/sales-agent.png" alt="Sales Agent" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f1f5f9/94a3b8?text=Project+Screenshot';">
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="text-sm font-bold text-blue-600 mb-3 tracking-wide uppercase">Lead AI Consultant</div>
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Autonomous Sales & Lead Qualification Agent</h3>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            Developed an end-to-end sales agent using <strong>Relevance AI</strong> that qualifies leads and handles FAQs. The agent autonomously retrieves lead details (name/organization), performs real-time web research to validate organization criteria, and makes go/no-go decisions. Upon qualification, it automatically schedules meetings via Calendly API and triggers Make webhooks to sync data into Pipedrive.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Relevance AI</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Pipedrive API</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Make</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Calendly</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div class="order-1 lg:order-1">
-                        <div class="text-sm font-bold text-blue-600 mb-3 tracking-wide uppercase">Automation Architect</div>
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Enterprise n8n Automation & RAG</h3>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            Developed a full automation pipeline using <strong>n8n</strong>. Scraped structured content from public websites, cleaned and transformed the data, and embedded it into Supabase. Built a RAG-powered AI assistant using LangChain and Groq to answer queries with real-time accuracy.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">n8n</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Supabase</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">Groq API</span>
-                            <span class="px-3 py-1 bg-slate-100 rounded text-xs font-bold text-slate-700">LangChain</span>
-                        </div>
-                    </div>
-                    <div class="order-2 lg:order-2 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl shadow-blue-900/10 bg-slate-50 group">
-                        <img src="./assets/n8n-workflow.jpeg" alt="n8n Workflow" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f1f5f9/94a3b8?text=Project+Screenshot';">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
         <section class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-slate-100 pt-16">
             <div>
                 <h3 class="text-xl font-bold mb-8 flex items-center gap-2">
@@ -325,10 +279,38 @@
                 <h3 class="text-xl font-bold mb-8 flex items-center gap-2">
                     <i data-lucide="languages" class="text-blue-600"></i> Languages
                 </h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-bold border border-slate-200">English (Fluent)</span>
-                    <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-bold border border-slate-200">French (Fluent)</span>
-                    <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-bold border border-slate-200">Arabic (Native)</span>
+                <div class="space-y-6">
+                    
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-bold text-slate-700">Arabic</span>
+                            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Native</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-bold text-slate-700">English</span>
+                            <span class="text-xs font-semibold text-slate-500">Fluent</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-bold text-slate-700">French</span>
+                            <span class="text-xs font-semibold text-slate-500">Fluent</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -336,12 +318,260 @@
 
     <footer class="py-12 border-t border-slate-100 bg-slate-50">
         <div class="max-w-6xl mx-auto px-6 text-center text-slate-400 text-sm">
-            <p>© 2025 Ayoub Amazyan. Built with Tailwind CSS.</p>
+            <p>© 2025 Ayoub Amazyan. Automation Engineer.</p>
         </div>
     </footer>
 
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl w-full max-w-[85vw] h-[85vh] overflow-hidden shadow-2xl flex flex-col md:flex-row relative animate-[fadeIn_0.3s_ease-out]">
+                
+                <button onclick="closeModal()" class="absolute top-6 right-6 z-20 bg-white/90 p-2 rounded-full hover:bg-slate-100 transition-colors shadow-sm">
+                    <i data-lucide="x" class="w-6 h-6 text-slate-900"></i>
+                </button>
+
+                <div class="w-full md:w-3/5 bg-slate-50 relative group h-64 md:h-full flex items-center justify-center overflow-hidden">
+                    
+                    <img id="modalImage" src="" class="w-full h-full object-contain transition-opacity duration-300 p-4">
+                    
+                    <button onclick="changeImage(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110 z-10">
+                        <i data-lucide="chevron-left" class="w-6 h-6 text-slate-900"></i>
+                    </button>
+                    <button onclick="changeImage(1)" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110 z-10">
+                        <i data-lucide="chevron-right" class="w-6 h-6 text-slate-900"></i>
+                    </button>
+                    
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/80 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-widest z-10">
+                        <span id="imgIndex">1</span> / <span id="imgTotal">1</span>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-2/5 p-10 md:p-12 flex flex-col h-full bg-white overflow-y-auto">
+                    <h2 id="modalTitle" class="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">Project Title</h2>
+                    
+                    <div id="modalTags" class="flex flex-wrap gap-2 mb-8">
+                        </div>
+                    
+                    <div class="prose prose-lg prose-slate text-slate-600 flex-grow mb-8 overflow-y-auto">
+                        <p id="modalDesc">Description goes here...</p>
+                    </div>
+                    
+                    <!-- <div class="mt-auto pt-6 border-t border-slate-100 flex gap-4 flex-shrink-0">
+                        <a href="#" class="flex-1 bg-blue-600 text-white text-center py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">View Live</a>
+                        <a href="#" class="flex-1 border-2 border-slate-200 text-slate-700 text-center py-4 rounded-xl font-bold hover:border-blue-600 hover:text-blue-600 transition-all">Github Repo</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
+
+        // --- DATA ---
+        // Project Data Object
+    // --- DATA ---
+        const projectsData = {
+            sales: {
+                title: "Autonomous Sales & Lead Agent",
+                category: "Automation",
+                folder: "./assets/sales",
+                count: 3,
+                tags: ["Relevance AI", "Pipedrive API", "Make"],
+                desc: "Developed an end-to-end sales agent using <strong>Relevance AI</strong> that qualifies leads and handles FAQs. The agent autonomously retrieves lead details (name/organization), performs real-time web research to validate organization criteria, and makes go/no-go decisions. Upon qualification, it automatically schedules meetings via Calendly API and triggers Make webhooks to sync data into Pipedrive."
+            },
+            n8n: {
+                title: "Enterprise n8n Automation & RAG",
+                category: "RAG Pipeline",
+                folder: "./assets/n8n",
+                count: 1,
+                tags: ["n8n", "Supabase", "Groq API"],
+                desc: "Developed a full automation pipeline using <strong>n8n</strong>. Scraped structured content from public websites, cleaned and transformed the data, and embedded it into Supabase. Built a RAG-powered AI assistant using LangChain and Groq to answer queries with real-time accuracy."
+            },
+            tervela: {
+                title: "Tervela: AI Data Cleaning Agent",
+                category: "AI Data Agent",
+                folder: "./assets/tervela",
+                count: 4,
+                tags: ["React", "LangGraph", "FastAPI", "Pandas"],
+                desc: "I built Tervela, a web app that lets technical and non-technical users clean and explore CSV/Excel data by chatting with an AI agent. Users upload a file and describe what they want (remove duplicates, filter rows, create columns, fix missing data), and a <strong>LangGraph-powered backend</strong> converts this into safe Pandas code, updates the table, and keeps a history of actions so data cleaning is faster and doesn’t require writing scripts."
+            },
+            scraper: {
+                title: "Intelligent Web Scraper Agent",
+                category: "Web Scraping",
+                folder: "./assets/scraper",
+                count: 2,
+                tags: ["Playwright", "Python", "LLM Agents"],
+                desc: "I built an intelligent web scraper that combines <strong>Playwright</strong> and <strong>LLM-based agents</strong> to extract structured data from complex websites (e-commerce, car marketplaces, content sites). It crawls pages, detects search/listing/detail views, discovers and validates selectors, manages sessions and logins, and exports clean JSON/CSV datasets ready for analytics. The framework is reusable, so new sites can be added quickly with minimal manual selector tuning."
+            },
+            vision: {
+                title: "AI Person Tracking & ID",
+                category: "Computer Vision",
+                folder: "./assets/vision",
+                count: 2,
+                tags: ["YOLO", "OpenCV", "Python"],
+                desc: "Built a robust computer vision pipeline for real-time person tracking and identification in video feeds. Utilized YOLO for object detection and custom algorithms for re-identification across video frames to maintain consistent tracking IDs even after occlusions."
+            }
+        };
+
+        // Convert object to array for the carousel
+        const projectKeys = Object.keys(projectsData);
+        
+        // --- CAROUSEL LOGIC ---
+        let currentPage = 0;
+        const itemsPerPage = 3; // Desktop default
+        let totalPages = Math.ceil(projectKeys.length / itemsPerPage);
+
+        function initCarousel() {
+                const track = document.getElementById('projectTrack');
+                const pagination = document.getElementById('paginationNumbers');
+                
+                track.innerHTML = '';
+                pagination.innerHTML = '';
+
+                projectKeys.forEach(key => {
+                    const p = projectsData[key];
+                    // Automatically use 1.png as the cover image
+                    const thumbnail = `${p.folder}/1.png`; 
+
+                    const cardHTML = `
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                            <div onclick="openModal('${key}')" class="h-full bg-white rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 hover:-translate-y-2 border border-slate-200">
+                                
+                                <div class="h-72 overflow-hidden relative bg-slate-100">
+                                    <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors z-10"></div>
+                                    <img src="${thumbnail}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/f1f5f9/94a3b8?text=Image+Missing'">
+                                </div>
+                                
+                                <div class="p-8">
+                                    <div class="text-xs font-bold text-blue-600 mb-3 uppercase tracking-wider flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                                        ${p.category}
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">${p.title}</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${p.tags.slice(0,3).map(tag => `<span class="text-[11px] font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-full border border-slate-200 group-hover:border-blue-200 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">${tag}</span>`).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    track.insertAdjacentHTML('beforeend', cardHTML);
+                });
+
+                // Pagination loop... (Keep the rest of your pagination code here)
+                for(let i = 0; i < totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = `w-12 h-12 rounded-full flex items-center justify-center transition-all text-lg font-bold ${i === 0 ? 'bg-slate-900 text-white shadow-xl scale-110' : 'hover:bg-slate-100 text-slate-400'}`;
+                    btn.innerText = i + 1;
+                    btn.onclick = () => goToSlide(i);
+                    pagination.appendChild(btn);
+                }
+                updateControls();
+            }
+
+        function moveSlide(direction) {
+            goToSlide(currentPage + direction);
+        }
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalPages) return;
+            currentPage = index;
+            
+            const track = document.getElementById('projectTrack');
+            const percent = currentPage * -100;
+            track.style.transform = `translateX(${percent}%)`;
+            
+            updateControls();
+        }
+
+        function updateControls() {
+            // Update Buttons
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages - 1;
+
+            // Update Numbers style
+            const numbers = document.getElementById('paginationNumbers').children;
+            Array.from(numbers).forEach((btn, idx) => {
+                if (idx === currentPage) {
+                    btn.className = 'w-10 h-10 rounded-full flex items-center justify-center bg-slate-900 text-white shadow-lg scale-110 transition-all font-bold';
+                } else {
+                    btn.className = 'w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 text-slate-400 transition-all';
+                }
+            });
+        }
+
+        // Handle Resize (Responsive recalculation)
+        window.addEventListener('resize', () => {
+            const isMobile = window.innerWidth < 768;
+            const newItemsPerPage = isMobile ? 1 : 3;
+            // Logic to reset carousel if needed, or simply let CSS flex handle the % widths
+        });
+
+        // --- MODAL LOGIC (Existing) ---
+        let currentImages = [];
+        let currentImageIndex = 0;
+
+        function openModal(projectId) {
+                const project = projectsData[projectId];
+                if (!project) return;
+
+                // 1. Set Text Content
+                document.getElementById('modalTitle').textContent = project.title;
+                document.getElementById('modalDesc').innerHTML = project.desc;
+                
+                // 2. Set Tags
+                const tagsContainer = document.getElementById('modalTags');
+                tagsContainer.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'px-3 py-1 bg-blue-50 text-blue-700 rounded text-xs font-bold uppercase tracking-wider';
+                    span.textContent = tag;
+                    tagsContainer.appendChild(span);
+                });
+
+                // 3. GENERATE IMAGES LOOP
+                // This creates the array: ["./assets/tervela/1.png", "./assets/tervela/2.png", ...]
+                currentImages = [];
+                for (let i = 1; i <= project.count; i++) {
+                    currentImages.push(`${project.folder}/${i}.png`);
+                }
+
+                // 4. Reset & Show
+                currentImageIndex = 0;
+                updateModalImage();
+
+                document.getElementById('projectModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = currentImages.length - 1;
+            if (currentImageIndex >= currentImages.length) currentImageIndex = 0;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            const img = document.getElementById('modalImage');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = currentImages[currentImageIndex];
+                document.getElementById('imgIndex').textContent = currentImageIndex + 1;
+                document.getElementById('imgTotal').textContent = currentImages.length;
+                img.style.opacity = '1';
+            }, 150);
+        }
+
+        // Initialize
+        initCarousel();
     </script>
 </body>
 </html>
