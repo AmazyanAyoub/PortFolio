@@ -574,6 +574,108 @@
         // Initialize
         initCarousel();
     </script>
-    <script defer data-relevanceai-share-id="bcbe5a/fb1b4a26-9f30-49b6-a75c-ca4c86580659/b6b9243f-a501-4345-b05c-b59c40e8d0b6" src="https://app.relevanceai.com/embed/chat-bubble.js" data-share-styles="starting_message_prompts=What+do+you+want+to+know+about+me%3F&hide_tool_steps=true&hide_file_uploads=true&hide_conversation_list=false&bubble_style=agent&primary_color=%236798FFF&bubble_icon=pd%2Fchat&input_placeholder_text=Type+your+message...&hide_logo=false&hide_description=true" ></script>
+    <!-- <script defer data-relevanceai-share-id="bcbe5a/fb1b4a26-9f30-49b6-a75c-ca4c86580659/b6b9243f-a501-4345-b05c-b59c40e8d0b6" src="https://app.relevanceai.com/embed/chat-bubble.js" data-share-styles="starting_message_prompts=What+do+you+want+to+know+about+me%3F&hide_tool_steps=true&hide_file_uploads=true&hide_conversation_list=false&bubble_style=agent&primary_color=%236798FFF&bubble_icon=pd%2Fchat&input_placeholder_text=Type+your+message...&hide_logo=false&hide_description=true" ></script> -->
+
+    <style>
+        /* Position the bubble above the chat icon */
+        #agent-greeting-bubble {
+            position: fixed;
+            bottom: 100px; /* Adjusted slightly higher to clear the specific Relevance icon */
+            right: 20px;
+            width: 260px;
+            background-color: #ffffff;
+            border-left: 5px solid #2563EB; /* Changed to Blue-600 to match your theme */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Tailwind shadow-xl */
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Inter', sans-serif; /* Matches your site font */
+            /* z-index: 2147483646; */
+            display: none; /* Hidden initially */
+            cursor: pointer;
+            animation: bounceIn 0.5s ease-out forwards;
+        }
+
+        /* The Text inside */
+        #agent-greeting-text {
+            color: #1e293b; /* Slate-800 */
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* The Close 'X' */
+        #agent-greeting-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            color: #94a3b8; /* Slate-400 */
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        #agent-greeting-close:hover {
+            color: #ef4444; /* Red on hover */
+        }
+
+        /* The arrow pointing down */
+        #agent-greeting-arrow {
+            position: absolute;
+            bottom: -8px;
+            right: 24px;
+            width: 0; 
+            height: 0; 
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #ffffff;
+        }
+
+        /* Animation */
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            60% { transform: translateY(-5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script defer data-relevanceai-share-id="bcbe5a/fb1b4a26-9f30-49b6-a75c-ca4c86580659/b6b9243f-a501-4345-b05c-b59c40e8d0b6" src="https://app.relevanceai.com/embed/chat-bubble.js" data-share-styles="starting_message_prompts=What+do+you+want+to+know+about+me%3F&hide_tool_steps=true&hide_file_uploads=true&hide_conversation_list=false&bubble_style=agent&primary_color=%232563EB&bubble_icon=pd%2Fchat&input_placeholder_text=Type+your+message...&hide_logo=false&hide_description=true" ></script>
+
+    <div id="agent-greeting-bubble" onclick="dismissBubble()">
+        <div id="agent-greeting-close" onclick="event.stopPropagation(); dismissBubble();">✕</div>
+        <div id="agent-greeting-text">
+            <strong>👋 Hi there!</strong><br/>
+            I'm Ayoub's AI Assistant. Ask me anything about his projects or skills!
+        </div>
+        <div id="agent-greeting-arrow"></div>
+    </div>
+
+    <script>
+        // Show the bubble after 3 seconds
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var bubble = document.getElementById('agent-greeting-bubble');
+                if (bubble) {
+                    bubble.style.display = 'block';
+                }
+            }, 3000);
+        });
+
+        // Hide bubble when clicked
+        function dismissBubble() {
+            var bubble = document.getElementById('agent-greeting-bubble');
+            if (bubble) {
+                bubble.style.display = 'none';
+            }
+            
+            // Optional: Attempt to open the chat widget when bubble is clicked
+            try {
+                // This selects the Relevance AI widget button inside its shadow DOM
+                const widget = document.querySelector('relevance-chat-bubble');
+                if (widget && widget.shadowRoot) {
+                    const button = widget.shadowRoot.querySelector('button'); // Usually it's the first button
+                    if (button) button.click();
+                }
+            } catch(e) { console.log("Could not auto-trigger widget click"); }
+        }
+    </script>
 </body>
 </html>
