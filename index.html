@@ -343,6 +343,17 @@
                     <details class="group/d">
                         <summary class="cursor-pointer flex items-center gap-2 py-3 font-bold text-sm md:text-base select-none">
                             <i data-lucide="chevron-right" class="w-4 h-4 text-sand-500 flex-shrink-0 transition-transform group-open/d:rotate-90"></i>
+                            <i data-lucide="wallet" class="w-4 h-4 text-forest-500 flex-shrink-0"></i>
+                            Nisba: Personal Finance &amp; Budget Tracker
+                        </summary>
+                        <div class="pl-10 pr-2 pb-4 text-sand-700 text-sm leading-relaxed">
+                            <p>Built and deployed Nisba, a personal finance application designed for Morocco, with all amounts in Moroccan dirhams (MAD). Combines flexible income allocation, expense tracking, emergency-fund planning, debt repayment, and an investment ledger with a visual dashboard and six-month trends. Developed a Next.js and TypeScript frontend backed by FastAPI and PostgreSQL, with JWT authentication, validated data, and integer-cent monetary storage for accurate calculations.</p>
+                            <a href="https://personal-finance-budget-tracker-orpin.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 font-bold text-forest-600 hover:text-forest-700 underline underline-offset-4">Visit Nisba <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                        </div>
+                    </details>
+                    <details class="group/d">
+                        <summary class="cursor-pointer flex items-center gap-2 py-3 font-bold text-sm md:text-base select-none">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-sand-500 flex-shrink-0 transition-transform group-open/d:rotate-90"></i>
                             <i data-lucide="bot" class="w-4 h-4 text-forest-500 flex-shrink-0"></i>
                             Autonomous Sales & Lead Qualification Agent
                         </summary>
@@ -525,6 +536,9 @@
                     <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">DVC</span>
                     <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">AWS</span>
                     <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">DigitalOcean</span>
+                    <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">Vercel</span>
+                    <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">Neon</span>
+                    <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">Render</span>
                     <span class="font-mono px-2.5 py-1 bg-white border border-sand-200 rounded text-xs font-medium">Supabase</span>
                 </div>
             </details>
@@ -661,6 +675,8 @@
                     <div class="w-full md:w-2/5 p-6 sm:p-10 flex flex-col h-full bg-white overflow-y-auto">
                         <h2 id="modalTitle" class="text-2xl sm:text-3xl font-black text-sand-900 mb-5 leading-tight">Project Title</h2>
 
+                        <a id="modalLiveLink" target="_blank" rel="noopener noreferrer" class="hidden items-center justify-center gap-2 mb-6 px-5 py-3 rounded-full bg-forest-600 text-white text-sm font-bold hover:bg-forest-700 transition-colors flex-shrink-0">Visit live site <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+
                         <div id="modalTags" class="flex flex-wrap gap-2 mb-6">
                             </div>
 
@@ -774,6 +790,15 @@
         // --- DATA ---
         // Project Data Object (full descriptions kept here; only surfaced on click via the modal)
         const projectsData = {
+            nisba: {
+                title: "Nisba: Personal Finance & Budget Tracker",
+                category: "Full-Stack Finance App",
+                folder: "./assets/Personal%20Finance%20%26%20Budget%20Tracker",
+                count: 2,
+                tags: ["Next.js", "FastAPI", "PostgreSQL", "Python", "LangChain", "OCR"],
+                liveUrl: "https://personal-finance-budget-tracker-orpin.vercel.app/",
+                desc: "Built and deployed <strong>Nisba</strong>, a personal finance and budgeting application designed around managing money in Morocco, with all amounts displayed in <strong>Moroccan dirhams (MAD)</strong>.<br/><br/>Users allocate income across <strong>Freedom Funds, Essentials, and Lifestyle</strong>, track extra income and expenses, and build an emergency fund covering three to six months of essential costs. Debt tracking distinguishes regular installments from exceptional advance payments, while an investment ledger and a visual dashboard show budget progress and six-month trends.<br/><br/>Built with <strong>Next.js, React, TypeScript, and Tailwind CSS</strong>, using TanStack Query and Recharts for data and visualization. The <strong>FastAPI and PostgreSQL</strong> backend uses SQLAlchemy, Alembic migrations, JWT authentication, and Pydantic validation. Monetary values are stored as integer cents to avoid floating-point errors.<br/><br/><strong>Roadmap:</strong> AI-assisted expense categorization, receipt OCR with user confirmation, multi-user accounts, and Morocco-relevant financial education."
+            },
             amazon: {
                 title: "Amazon Listing Automation Pipeline",
                 category: "Python Automation",
@@ -866,6 +891,7 @@
                             </div>
                             <i data-lucide="arrow-up-right" class="w-5 h-5 text-sand-300 group-hover:text-forest-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"></i>
                         </div>
+                        ${p.liveUrl ? `<div class="px-5 md:px-6 pb-5 md:pb-6"><a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-forest-600 text-white text-sm font-bold hover:bg-forest-700 transition-colors">Visit live site <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a></div>` : ''}
                     </div>
                 `;
                 grid.insertAdjacentHTML('beforeend', cardHTML);
@@ -885,6 +911,17 @@
                 document.getElementById('modalTitle').textContent = project.title;
                 document.getElementById('modalDesc').innerHTML = project.desc;
                 document.getElementById('modalPath').textContent = `~/projects/${projectId}`;
+
+                const liveLink = document.getElementById('modalLiveLink');
+                if (project.liveUrl) {
+                    liveLink.href = project.liveUrl;
+                    liveLink.classList.remove('hidden');
+                    liveLink.classList.add('inline-flex');
+                } else {
+                    liveLink.removeAttribute('href');
+                    liveLink.classList.add('hidden');
+                    liveLink.classList.remove('inline-flex');
+                }
 
                 const tagsContainer = document.getElementById('modalTags');
                 tagsContainer.innerHTML = '';
